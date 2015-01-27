@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta name="robots" content="index,follow" />
+<meta name="robots" content="noydir" />
+<meta name="robots" content="noodp" />
+<meta http-equiv="content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="content-Language" content="ja" />
+<meta http-equiv="content-Script-Type" content="text/javascript" />
+<meta http-equiv="content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>.RisingSun | Jquery PlugIn</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta property="og:title" content=".RisingSun" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="http://" />
+<meta property="og:site_name" content="" />
+<meta property="og:image" content="http://" />
+
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="styleSheet" type="text/css" href="css/import.css" />
+<link rel="stylesheet" href="js/lib/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="js/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/lib/fancybox2/jquery.fancybox.js?v=2.1.5"></script>
+<script type="text/javascript" src="js/lib/easySlider1.7.js"></script>
+<script type="text/javascript" src="js/lib/risingSun.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<!--[if lt IE 7]>
+<script type="text/javascript" src="js/DD_belatedPNG.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('.pngfix');
+</script>
+<![endif]-->
+</head>
+<body>
+<div id="topArea"><div class="center980">
+	<h1><img src="images/logo.png" height="122" width="579" alt="" /></h1>
+	<div id="sun"><img src="images/rising.png" height="178" width="396" alt="" /></div>
+	<div id="dot"><img src="images/dot.png" height="23" width="24" alt="" /></div>
+	<h4>
+		This is a jQuery plugin that can start some kind of animation <br>when entering the viewport<br>
+		version 0.8 beta
+	</h4>
+	<p id="auther">written by Kiyoshi Honda</p>
+	<div id="download"><a href="js/lib/risingSun.js" target="_blank">download</a></div>
+	<div id="down" class="al"><a href="#sceneHowto"><img src="images/down.png" height="27" width="221" alt="" /></a></div>
+</div></div>
+
+<div id="sceneHowto"><div class="center980">
+	<h2>How to use</h2>
+	<div id="howtotext" class="textbox">
+		1.load 'risingSun.js' after jQury and jQuery easing.(This plugIn needs '<a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">jQuery easing</a>.')<br>
+		2.The basic usage is $('<span class="classname">element</span>').RisingSun(<span class="point">[otion]</span>);<br>
+		3.You can set some parameter to [option]. Check the <a href="#reference">reference</a>.<br>
+		<br>
+		Please bear in mind that scale of animation must be 'position:absolute';
+	</div>
+</div></div>
+
+<div id="scene1"><div class="center980">
+	<h2>Sample Animation</h2>
+	<div id="fadein"><img src="images/fadein.png" height="198" width="198" alt="" /></div>
+	<div id="scalein"><img src="images/scalein.png" height="198" width="198" alt="" /></div>
+	<div id="movein"><img src="images/movein.png" height="198" width="198" alt="" /></div>
+	<div id="tx1" class="textbox">
+	$("<span class="classname">#fadein</span>").RisingSun({animetime:300});<br>
+	$("<span class="classname">#scalein</span>").RisingSun({animetime:500,<span class="point">scale:0.1</span>,ease:"easeInCubic"});<br>
+	$("<span class="classname">#movein</span>").RisingSun({animetime:800,<span class="point">x:50</span>,<span class="point">y50</span>,ease:"easeOutCubic"});<br>
+	</div>
+	<div id="popin"><img src="images/popin.png" height="280" width="280" alt="" /></div>
+	<div id="tx2" class="textbox">
+	$("<span class="classname">#popin</span>").RisingSun({<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animetime:300,scale:0.1,<span class="point">popanime:true</span>,ease:"easeOutCubic",replay:true<br>
+	});<br>
+	</div>
+	<div id="wipein"><img src="images/wipein.png" height="131" width="527" alt="" /></div>
+	<div id="tx3" class="textbox">
+	$("<span class="classname">#wipein</span>").RisingSun({<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nimetime:1200,<span class="point">wipe:"LR"</span>,ease:"easeInOutCubic",replay:true<br>
+	});<br>
+	</div>
+</div></div>
+
+<div id="scene2"><div class="center980">
+	<h2>Timer and Callback</h2>
+	<div id="timerclick" class="al"><a href="javascript:void();" onclick="clickTimer()"><img src="images/click.png" height="117" width="116" alt="" /></a></div>
+	<div id="timer"><img src="images/timer.png" height="281" width="280" alt="" /></div>
+	<div id="callback1"><img src="images/callback1.png" height="33" width="33" alt="" /></div>
+	<div id="callback2"><img src="images/callback2.png" height="52" width="52" alt="" /></div>
+	<div id="callback3"><img src="images/callback3.png" height="79" width="79" alt="" /></div>
+	<div id="tx4" class="textbox">
+	$("<span class="classname">#timer</span>").RisingSun({<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="point">timer:1500,</span>animetime:300,scale:0.1,popanime:true,startPosition:0.7,ease:"easeOutCubic"<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="point">onComplete:function()</span>{<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("<span class="classname">#callback1</span>").RisingSun({timer:0,animetime:300,scale:0.1,popanime:true,ease:"easeOutCubic"});<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("<span class="classname">#callback2</span>").RisingSun({timer:100,animetime:300,scale:0.1,popanime:true,ease:"easeOutCubic"});<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("<span class="classname">#callback3</span>").RisingSun({timer:200,animetime:300,scale:0.1,popanime:true,ease:"easeOutCubic"});<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+	});<br>
+	
+
+	</div>
+</div></div>
+
+<div id="reference"><div class="center980">
+	<h2>Options</h2>
+	<div id="Referencetext" class="textbox">
+		<span>animetime:</span> is animation speed		[Default  500]<br>
+		<span>timer:</span> is set Timer.Animation will start after this value(ms) [Default  false]<br>
+		<span>startPosition:</span> is startPosition at Viewport(top 0.0- bottom 1.0) [Default  0.5]<br>
+		<span>x:</span>	is x move Animation [Default  0]<br>
+		<span>y:</span>	is y move Animation	[Default  0]<br>
+		<span>scale:</span>	is scale move Animation　[Default 1.0]<br>
+		<span>ease:</span> 	takes an ease method　[Default  'linear']<br>
+		<span>wipe:</span> 	is wipe animation("TB" or "LR") [Default  false]<br>
+		<span>fadeStart:</span> start opacity	 [Default  0]<br>
+		<span>fadeEnd:</span> 	end opacity	[Default 1.0]<br>
+		<span>popanime:</span> Pop Up Animation　[Default false]<br>
+		<span>replay:</span> replay [Default true]<br>
+		<span>onWakeup:function(){}</span> 		is called when animation is sarted<br>
+		<span>onComplete:function(){}</span> 		is called when animation is finished<br>
+		<span>onReplay:function(){}</span> 		is called when replay<br>
+	</div>
+</div></div>
+
+<div id="footer"><div class="center980">
+	<div id="copyright">©Copyright Kiyoshi Honda All right reserved.</div>
+</div></div>
+
+
+</body>
+</html>
