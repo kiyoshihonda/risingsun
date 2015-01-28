@@ -112,10 +112,15 @@ h4{
 	text-align: center;
 	display: none;
 }
+.howtolead{
+	font-weight: bold;
+	margin-bottom: 15px;
+	font-size: 12px;
+}
 #sceneHowto{
 	min-width:980px;
 	width: 100%;
-	height:400px;
+	height:500px;
 	background: #fff;
 }
 #sceneHowto h2{
@@ -264,7 +269,7 @@ h4{
 	margin-top: 50px;
 	line-height: 2.0em;
 }
-#Referencetext .op{
+.op{
 	color:#f15980;
 	font-weight: bold;
 }
