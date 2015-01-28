@@ -37,7 +37,7 @@
 		version 1.0
 	</h4>
 	<p id="auther">written by Kiyoshi Honda</p>
-	<div id="download"><a href="js/lib/risingSun.js" target="_blank">download</a></div>
+	<div id="download"><a href="https://github.com/kiyoshihonda/risingsun/blob/master/js/lib/jquery.risingSun.js" target="_blank">download</a></div>
 	<div id="down" class="al"><a href="#sceneHowto"><img src="images/down.png" height="27" width="221" alt="" /></a></div>
 </div></div>
 
@@ -58,20 +58,20 @@
 	<div id="scalein"><img src="images/scalein.png" height="198" width="198" alt="" /></div>
 	<div id="movein"><img src="images/movein.png" height="198" width="198" alt="" /></div>
 	<div id="tx1" class="textbox">
-	$("<span class="classname">#fadein</span>").RisingSun({animetime:300});<br>
-	$("<span class="classname">#scalein</span>").RisingSun({animetime:500,<span class="point">scale:0.1</span>,ease:"easeInCubic"});<br>
-	$("<span class="classname">#movein</span>").RisingSun({animetime:800,<span class="point">x:50</span>,<span class="point">y50</span>,ease:"easeOutCubic"});<br>
+	$("<span class="classname">#fadein</span>").RisingSun({duration:300});<br>
+	$("<span class="classname">#scalein</span>").RisingSun({duration:500,<span class="point">scale:0.1</span>,ease:"easeInCubic"});<br>
+	$("<span class="classname">#movein</span>").RisingSun({duration:800,<span class="point">x:50</span>,<span class="point">y50</span>,ease:"easeOutCubic"});<br>
 	</div>
 	<div id="popin"><img src="images/popin.png" height="280" width="280" alt="" /></div>
 	<div id="tx2" class="textbox">
 	$("<span class="classname">#popin</span>").RisingSun({<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animetime:300,scale:0.1,<span class="point">popanime:true</span>,ease:"easeOutCubic",replay:true<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration:300,scale:0.1,<span class="point">popanime:true</span>,ease:"easeOutCubic",replay:true<br>
 	});<br>
 	</div>
 	<div id="wipein"><img src="images/wipein.png" height="131" width="527" alt="" /></div>
 	<div id="tx3" class="textbox">
 	$("<span class="classname">#wipein</span>").RisingSun({<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nimetime:1200,<span class="point">wipe:"LR"</span>,ease:"easeInOutCubic",replay:true<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration:1200,<span class="point">wipe:"LR"</span>,ease:"easeInOutCubic",replay:true<br>
 	});<br>
 	</div>
 </div></div>
@@ -85,11 +85,11 @@
 	<div id="callback3"><img src="images/callback3.png" height="79" width="79" alt="" /></div>
 	<div id="tx4" class="textbox">
 	$("<span class="classname">#timer</span>").RisingSun({<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="point">timer:1500,</span>animetime:300,scale:0.1,popanime:true,startPosition:0.7,ease:"easeOutCubic"<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="point">timer:1500,</span>duration:300,scale:0.1,popanime:true,startPosition:0.7,ease:"easeOutCubic"<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="point">onComplete:function()</span>{<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("<span class="classname">#callback1</span>").RisingSun({timer:0,animetime:300,scale:0.1,popanime:true,ease:"easeOutCubic"});<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("<span class="classname">#callback2</span>").RisingSun({timer:100,animetime:300,scale:0.1,popanime:true,ease:"easeOutCubic"});<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("<span class="classname">#callback3</span>").RisingSun({timer:200,animetime:300,scale:0.1,popanime:true,ease:"easeOutCubic"});<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("<span class="classname">#callback1</span>").RisingSun({timer:0,duration:300,scale:0.1,popanime:true,ease:"easeOutCubic"});<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("<span class="classname">#callback2</span>").RisingSun({timer:100,duration:300,scale:0.1,popanime:true,ease:"easeOutCubic"});<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("<span class="classname">#callback3</span>").RisingSun({timer:200,duration:300,scale:0.1,popanime:true,ease:"easeOutCubic"});<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 	});<br>
 	
