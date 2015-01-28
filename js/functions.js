@@ -1,5 +1,7 @@
 $(function(){
 	//window.onload = function(){
+
+
 	$("h1").RisingSun({
 		timer:300,duration:300,scale:0.1,popanime:true,ease:"easeOutCubic"
 	});
@@ -30,6 +32,10 @@ $(function(){
 	$("#wipein").RisingSun({
 		duration:1200,wipe:"LR",ease:"easeInOutCubic",startPosition:0.6
 	});
+	$("#rotatein").RisingSun({
+		duration:800,scale:0.1,rotate:360,ease:"easeInOutCubic",startPosition:0.7
+	});
+
 	$("#timerclick").RisingSun({
 		duration:300,scale:0.1,popanime:true,startPosition:0.7,ease:"easeOutCubic"
 	});
