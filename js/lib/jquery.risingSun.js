@@ -21,15 +21,32 @@ http://jquery.com
 		this.each(function(i,elem) {
 			var $this = $(elem);
 			var Default={
-				mode:"school",timer:-1,duration:500,x:0,y:0,scale:1.0,ease:"linear",startPosition:0.5,wipe:false,fadeStart:0,fadeEnd:1.0,popanime:false,onWakeup:function(){},onComplete: function(){},replay:true,onReplay: function(){},rotate:0
+				mode: "school",
+				timer: -1,
+				duration: 500,
+				x: 0,
+				y: 0,
+				scale: 1.0,
+				ease: "linear",
+				startPosition: 0.5,
+				wipe: false,
+				fadeStart: 0,
+				fadeEnd: 1.0,
+				popanime: false,
+				onWakeup: function(){},
+				onComplete: function(){},
+				replay: true,
+				onReplay: function(){},
+				rotate: 0
 			};
 			var s = $.extend(Default, options);
 			if(s.timer==-1){
-				$.fn.RisingSun._setScrollObj($this,s.duration,s.x,s.y,s.scale,s.ease,s.startPosition,s.wipe,s.fadeStart,s.fadeEnd,-9999,s.popanime,s.onWakeup,s.onComplete,s.replay,s.onReplay,s.rotate);
+				s.timer = -9999;
 			}else{
 				if(s.timer<=0){s.timer=1;}
-				$.fn.RisingSun._setScrollObj($this,s.duration,s.x,s.y,s.scale,s.ease,s.startPosition,s.wipe,s.fadeStart,s.fadeEnd,s.timer,s.popanime,s.onWakeup,s.onComplete,false/*replay*/,s.onReplay,s.rotate);
+				s.replay = false;
 			}
+			$.fn.RisingSun._setScrollObj($this, s);
 		});
 	};
 
@@ -50,9 +67,9 @@ http://jquery.com
 			wh=$(window).height();
 			RS.scrollObj();
 		},	
-		_setScrollObj: function(obj,duration,left,top,scale,ease,startPosition,wipe,fadestart,fadeend,autostart,popanime,onWakeup,onComplete,replay,onReplay,rotate){
-			var as = autostart || -9999;
-			if(popanime==true){popanime=1.1;}
+		_setScrollObj: function(obj, options){
+			var as = options.timer || -9999;
+			if(options.popanime==true){options.popanime=1.1;}
 			if(obj.css("display")=="none"){
 				obj.css("opacity",0);
 				obj.css("display","block");
@@ -64,7 +81,19 @@ http://jquery.com
 				obj.css("top",parseInt(obj.obj.offset().top,10)+parseInt(obj.css("marginTop").match(/[0-9]+/)[0],10) );
 			}
 			*/
-			RS.scrObj.push( { obj:obj,duration:duration,positionLeft:obj.position().left,positionTop:obj.position().top,top:top,left:left,scale:scale,ease:ease,oiginaltop:(obj.offset().top),oiginalleft:obj.offset().left,pos:obj.position(),done:false,width:obj.width(),height:obj.height(),startPosition:startPosition,fadeStart:fadestart,fadeEnd:fadeend,wipe:wipe,autostart:as,popanime:popanime,onWakeup:onWakeup,onComplete:onComplete,replay:replay,onReplay:onReplay,rotate:rotate} );
+			options = $.extend(options, {
+				obj: obj,
+				positionLeft: obj.position().left,
+				positionTop: obj.position().top,
+				oiginaltop: obj.offset().top,
+				oiginalleft: obj.offset().left,
+				pos: obj.position(),
+				done: false,
+				width: obj.width(),
+				height: obj.height(),
+				autostart: as
+			});
+			RS.scrObj.push( options );
 			RS.resetObject(RS.scrObj[RS.scrObj.length-1]);
 		},
 		timerOver: function(e) {
