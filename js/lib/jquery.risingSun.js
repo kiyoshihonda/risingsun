@@ -83,16 +83,20 @@ http://jquery.com
 			*/
 			options = $.extend(options, {
 				obj: obj,
-				positionLeft: obj.position().left,
+				positionLeft: obj.css('left').match(/[0-9]+/),
 				positionTop: obj.position().top,
 				oiginaltop: obj.offset().top,
 				oiginalleft: obj.offset().left,
-				pos: obj.position(),
+				pos: {
+					top: obj.position().top,
+					left: obj.css('left').match(/[0-9]+/)
+				},
 				done: false,
 				width: obj.width(),
 				height: obj.height(),
 				autostart: as
 			});
+
 			RS.scrObj.push( options );
 			RS.resetObject(RS.scrObj[RS.scrObj.length-1]);
 		},
