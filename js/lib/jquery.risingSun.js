@@ -13,8 +13,6 @@ http://jquery.com
 -----------------------------------------------------------------
 -----------------------------------------------------------------
 */
-
-
 (function($){
 	var RS = $.fn.RisingSun = function(options){
 		$.fn.RisingSun.initScrollAnime();
@@ -83,13 +81,13 @@ http://jquery.com
 			*/
 			options = $.extend(options, {
 				obj: obj,
-				positionLeft: obj.css('left').match(/[0-9]+/),
+				positionLeft: Number(obj.css('left').match(/[0-9]+/)),
 				positionTop: obj.position().top,
 				oiginaltop: obj.offset().top,
 				oiginalleft: obj.offset().left,
 				pos: {
 					top: obj.position().top,
-					left: obj.css('left').match(/[0-9]+/)
+					left: Number(obj.css('left').match(/[0-9]+/))
 				},
 				done: false,
 				width: obj.width(),
@@ -108,8 +106,8 @@ http://jquery.com
 			sw=obj.width*obj.scale;
 			sh=obj.width*ratio*obj.scale;
 
-			obj.obj.css("left",Number(obj.positionLeft+obj.left- ((sw-obj.width )>>1) ));
-			obj.obj.css("top",Number(obj.positionTop+obj.top- ((sh-obj.height )>>1) ));
+			obj.obj.css("left",Number(obj.positionLeft - ((sw-obj.width )>>1) ));
+			obj.obj.css("top",Number(obj.positionTop - ((sh-obj.height )>>1) ));
 
 			if(obj.wipe=="LR"){
 				obj.obj.wrapInner("<div style='width:"+(obj.width+1)+"px;'></div>");
