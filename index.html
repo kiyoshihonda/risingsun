@@ -23,7 +23,7 @@
 <link rel="styleSheet" type="text/css" href="css/import.css" />
 <script type="text/javascript" src="js/lib/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/lib/risingSun.js"></script>
+<script type="text/javascript" src="js/lib/jquery.risingSun.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/functions.js"></script>
 </head>
@@ -100,21 +100,21 @@
 <div id="reference"><div class="center980">
 	<h2>Options</h2>
 	<div id="Referencetext" class="textbox">
-		<span>animetime:</span> is animation speed		[Default  500]<br>
-		<span>timer:</span> is set Timer.Animation will start after this value(ms) [Default  false]<br>
-		<span>startPosition:</span> is startPosition at Viewport(top 0.0- bottom 1.0) [Default  0.5]<br>
-		<span>x:</span>	is x move Animation [Default  0]<br>
-		<span>y:</span>	is y move Animation	[Default  0]<br>
-		<span>scale:</span>	is scale move Animation　[Default 1.0]<br>
-		<span>ease:</span> 	takes an ease method　[Default  'linear']<br>
-		<span>wipe:</span> 	is wipe animation("TB" or "LR") [Default  false]<br>
-		<span>fadeStart:</span> start opacity	 [Default  0]<br>
-		<span>fadeEnd:</span> 	end opacity	[Default 1.0]<br>
-		<span>popanime:</span> Pop Up Animation　[Default false]<br>
-		<span>replay:</span> replay [Default true]<br>
-		<span>onWakeup:function(){}</span> 		is called when animation is sarted<br>
-		<span>onComplete:function(){}</span> 		is called when animation is finished<br>
-		<span>onReplay:function(){}</span> 		is called when replay<br>
+		<span class="op">duration:</span> is animation speed	<span class="blue">[Default  500]</span><br>
+		<span class="op">timer:</span> is set Timer.Animation will start after this value(ms) <span class="blue">[Default  false]</span><br>
+		<span class="op">startPosition:</span> is starting position at Viewport(top 0.0- bottom 1.0) <span class="blue">[Default  0.5]</span><br>
+		<span class="op">x:</span>is starting position X(diff) for moving Animation <span class="blue">[Default  0]</span><br>
+		<span class="op">y:</span>	is starting position Y(diff) for moving Animation	<span class="blue">[Default  0]</span><br>
+		<span class="op">scale:</span>	is starting scale for scaling Animation <span class="blue">[Default 1.0]</span><br>
+		<span class="op">ease:</span> 	takes an ease method　<span class="blue">[Default  'linear']</span><br>
+		<span class="op">wipe:</span> 	is wipe animation("TB" or "LR") <span class="blue">[Default  false]</span><br>
+		<span class="op">fadeStart:</span> start opacity	 <span class="blue">[Default  0]</span><br>
+		<span class="op">fadeEnd:</span> 	end opacity	<span class="blue">[Default 1.0]</span><br>
+		<span class="op">popanime:</span> Pop Up Animation ('true/false' or scaling factor)<span class="blue">[Default false]</span><br>
+		<span class="op">replay:</span> replays animation unless “false” is input <span class="blue">[Default true]</span><br>
+		<span class="op">onWakeup:</span> function is called when animation is sarted<br>
+		<span class="op">onComplete:</span> functioni s called when animation is finished<br>
+		<span class="op">onReplay:</span> function	is called when replay<br>
 	</div>
 </div></div>
 

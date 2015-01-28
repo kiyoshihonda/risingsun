@@ -21,7 +21,9 @@ a:hover{
 .classname{
 	color:#5EA800;
 }
-
+.blue{
+	color:#3a7fe6;
+}
 .textbox{
 	width: 800px;
 	background: #EBE7DD;
@@ -249,7 +251,7 @@ h4{
 	margin-top: 50px;
 	line-height: 2.0em;
 }
-#Referencetext span{
+#Referencetext .op{
 	color:#f15980;
 	font-weight: bold;
 }
