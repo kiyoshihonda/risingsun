@@ -17,7 +17,7 @@
 <meta property="og:description" content="This is a jQuery plugin that can start some kind of animation when entering the viewport" />
 <meta property="og:url" content="http://hondakiyoshi.com/risingsun/" />
 <meta property="og:site_name" content=".RisingSun | Jquery PlugIn" />
-<meta property="og:image" content="http://hondakiyoshi.com/risingsun/common/logo.png" />
+<meta property="og:image" content="http://hondakiyoshi.com/risingsun/images/common/logo.png" />
 
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="styleSheet" type="text/css" href="css/import.css" />
@@ -71,7 +71,13 @@
 	<div id="wipein"><img src="images/wipein.png" height="131" width="527" alt="" /></div>
 	<div id="tx3" class="textbox">
 	$("<span class="classname">#wipein</span>").RisingSun({<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration:1200,<span class="point">wipe:"LR"</span>,ease:"easeInOutCubic",replay:true<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration:1200,<span class="point">wipe:"LR"</span>,ease:"easeInOutCubic"<br>
+	});<br>
+	</div>
+	<div id="rotatein"><img src="images/rotate.png" height="255" width="255" alt="" /></div>
+	<div id="txrotate" class="textbox">
+	$("<span class="classname">#rotatein</span>").RisingSun({<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration:800,<span class="point">rotate:360</span>,ease:"easeInCubic",<br>
 	});<br>
 	</div>
 </div></div>
@@ -105,6 +111,7 @@
 		<span class="op">startPosition:</span> is starting position at Viewport(top 0.0- bottom 1.0) <span class="blue">[Default  0.5]</span><br>
 		<span class="op">x:</span>is starting position X(diff) for moving Animation <span class="blue">[Default  0]</span><br>
 		<span class="op">y:</span>	is starting position Y(diff) for moving Animation	<span class="blue">[Default  0]</span><br>
+		<span class="op">rotate:</span>	is starting axis (diff) for rotation Animation	<span class="blue">[Default  0]</span><br>
 		<span class="op">scale:</span>	is starting scale for scaling Animation <span class="blue">[Default 1.0]</span><br>
 		<span class="op">ease:</span> 	takes an ease method　<span class="blue">[Default  'linear']</span><br>
 		<span class="op">wipe:</span> 	is wipe animation("TB" or "LR") <span class="blue">[Default  false]</span><br>

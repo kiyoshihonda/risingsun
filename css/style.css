@@ -131,7 +131,7 @@ h4{
 #scene1{
 	min-width:980px;
 	width: 100%;
-	height:1600px;
+	height:2150px;
 }
 #scene1 h2{
 	position: absolute;
@@ -189,6 +189,19 @@ h4{
 	margin-right: auto;
 	margin-left: auto;
 }
+#scene1 #rotatein{
+	position: absolute;
+	top: 1680px;
+	left: 370px;
+}
+#scene1 #txrotate{
+	top: 1400px;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
 #scene2{
 	min-width:980px;
 	width: 100%;

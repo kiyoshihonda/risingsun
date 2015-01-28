@@ -14,19 +14,21 @@ http://jquery.com
 -----------------------------------------------------------------
 */
 
+
 (function($){
 	var RS = $.fn.RisingSun = function(options){
 		$.fn.RisingSun.initScrollAnime();
 		this.each(function(i,elem) {
 			var $this = $(elem);
 			var Default={
-				mode:"school",timer:-1,duration:500,x:0,y:0,scale:1.0,ease:"linear",startPosition:0.5,wipe:false,fadeStart:0,fadeEnd:1.0,popanime:false,onWakeup:function(){},onComplete: function(){},replay:true,onReplay: function(){}
+				mode:"school",timer:-1,duration:500,x:0,y:0,scale:1.0,ease:"linear",startPosition:0.5,wipe:false,fadeStart:0,fadeEnd:1.0,popanime:false,onWakeup:function(){},onComplete: function(){},replay:true,onReplay: function(){},rotate:0
 			};
 			var s = $.extend(Default, options);
 			if(s.timer==-1){
-				$.fn.RisingSun._setScrollObj($this,s.duration,s.x,s.y,s.scale,s.ease,s.startPosition,s.wipe,s.fadeStart,s.fadeEnd,-9999,s.popanime,s.onWakeup,s.onComplete,s.replay,s.onReplay);
+				$.fn.RisingSun._setScrollObj($this,s.duration,s.x,s.y,s.scale,s.ease,s.startPosition,s.wipe,s.fadeStart,s.fadeEnd,-9999,s.popanime,s.onWakeup,s.onComplete,s.replay,s.onReplay,s.rotate);
 			}else{
-				$.fn.RisingSun._setTimerObj(s.timer,$this,s.duration,s.x,s.y,s.scale,s.ease,s.wipe,s.fadeStart,s.fadeEnd,s.popanime,s.onWakeup,s.onComplete,false/*replay*/,s.onReplay);
+				if(s.timer<=0){s.timer=1;}
+				$.fn.RisingSun._setScrollObj($this,s.duration,s.x,s.y,s.scale,s.ease,s.startPosition,s.wipe,s.fadeStart,s.fadeEnd,s.timer,s.popanime,s.onWakeup,s.onComplete,false/*replay*/,s.onReplay,s.rotate);
 			}
 		});
 	};
@@ -47,20 +49,15 @@ http://jquery.com
 			scr=$(window).scrollTop();
 			wh=$(window).height();
 			RS.scrollObj();
-		},
-		_setTimerObj: function(timer,obj,duration,left,top,scale,ease,wipe,fadeStart,fadeEnd,popanime,onWakeup,onComplete,onReplay){
-			if(timer<=0){timer=1;}
-			RS._setScrollObj(obj,duration,left,top,scale,ease,0,wipe,fadeStart,fadeEnd,timer,popanime,onWakeup,onComplete,onReplay);
-		},
-		_setScrollObj: function(obj,duration,left,top,scale,ease,startPosition,wipe,fadestart,fadeend,autostart,popanime,onWakeup,onComplete,replay,onReplay){
+		},	
+		_setScrollObj: function(obj,duration,left,top,scale,ease,startPosition,wipe,fadestart,fadeend,autostart,popanime,onWakeup,onComplete,replay,onReplay,rotate){
 			var as = autostart || -9999;
-
 			if(popanime==true){popanime=1.1;}
 			if(obj.css("display")=="none"){
 				obj.css("opacity",0);
 				obj.css("display","block");
 			}
-			RS.scrObj.push( { obj:obj,duration:duration,positionLeft:obj.position().left,positionTop:obj.position().top,top:top,left:left,scale:scale,ease:ease,oiginaltop:(obj.offset().top),oiginalleft:obj.offset().left,pos:obj.position(),done:false,width:obj.width(),height:obj.height(),startPosition:startPosition,fadeStart:fadestart,fadeEnd:fadeend,wipe:wipe,autostart:as,popanime:popanime,onWakeup:onWakeup,onComplete:onComplete,replay:replay,onReplay:onReplay} );
+			RS.scrObj.push( { obj:obj,duration:duration,positionLeft:obj.position().left,positionTop:obj.position().top,top:top,left:left,scale:scale,ease:ease,oiginaltop:(obj.offset().top),oiginalleft:obj.offset().left,pos:obj.position(),done:false,width:obj.width(),height:obj.height(),startPosition:startPosition,fadeStart:fadestart,fadeEnd:fadeend,wipe:wipe,autostart:as,popanime:popanime,onWakeup:onWakeup,onComplete:onComplete,replay:replay,onReplay:onReplay,rotate:rotate} );
 			RS.resetObject(RS.scrObj[RS.scrObj.length-1]);
 		},
 		timerOver: function(e) {
@@ -94,6 +91,7 @@ http://jquery.com
 				obj.obj.css("width",sw);
 				obj.obj.css("height",sh);
 			}
+			obj.obj.stop(false).animate({deg: obj.rotate},{'duration':0});
 			obj.obj.css("opacity",obj.fadeStart);
 			obj.done=false;
 			if(obj.autostart!=-9999){
@@ -129,10 +127,15 @@ http://jquery.com
 					left:obj.pos.left,
 					top:obj.pos.top,
 					width: obj.width,
-					height: obj.height
+					height: obj.height,
+					deg: 0
 				},
 				{'complete': RS.endAnime.bind(obj, ''),
-				'duration':obj.duration,'easing':obj.ease});
+				'duration':obj.duration,'easing':obj.ease,
+				step: function(now) {
+					obj.obj.css({transform: 'rotate(' + now + 'deg)'});
+				}
+			});
 			}else{
 				obj.obj.stop(false).animate(
 				{
