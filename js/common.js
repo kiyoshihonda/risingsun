@@ -15,7 +15,6 @@ $(function(){
 		var h=$(window).height()
 		var STwidth=(w>MINWIDTH)?w:MINWIDTH;
 		var STheight = (h>MINHEIGHT)?h:MINHEIGHT;
-		console.log(STheight);
 		$("#topArea").height(STheight);
 		$("#down").css("top",STheight-50);
 	}
