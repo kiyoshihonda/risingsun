@@ -33,7 +33,7 @@ $(function(){
 		duration:1200,wipe:"LR",ease:"easeInOutCubic",startPosition:0.6
 	});
 	$("#rotatein").RisingSun({
-		duration:800,rotate:360,ease:"easeInOutCubic",startPosition:0.7
+		duration:800,scale:0.1,rotate:360,ease:"easeInOutCubic",startPosition:0.7
 	});
 
 	$("#timerclick").RisingSun({

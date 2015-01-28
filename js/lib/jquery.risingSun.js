@@ -57,6 +57,13 @@ http://jquery.com
 				obj.css("opacity",0);
 				obj.css("display","block");
 			}
+			/*
+			if(obj.css("position")=="static"){
+				obj.css("position","absolute");
+				obj.css("left",parseInt(obj.offset().left,10)+parseInt(obj.css("marginLeft").match(/[0-9]+/)[0],10) );
+				obj.css("top",parseInt(obj.obj.offset().top,10)+parseInt(obj.css("marginTop").match(/[0-9]+/)[0],10) );
+			}
+			*/
 			RS.scrObj.push( { obj:obj,duration:duration,positionLeft:obj.position().left,positionTop:obj.position().top,top:top,left:left,scale:scale,ease:ease,oiginaltop:(obj.offset().top),oiginalleft:obj.offset().left,pos:obj.position(),done:false,width:obj.width(),height:obj.height(),startPosition:startPosition,fadeStart:fadestart,fadeEnd:fadeend,wipe:wipe,autostart:as,popanime:popanime,onWakeup:onWakeup,onComplete:onComplete,replay:replay,onReplay:onReplay,rotate:rotate} );
 			RS.resetObject(RS.scrObj[RS.scrObj.length-1]);
 		},
@@ -67,7 +74,7 @@ http://jquery.com
 			ratio = obj.height / obj.width;
 			sw=obj.width*obj.scale;
 			sh=obj.width*ratio*obj.scale;
-			//if(obj.obj.css("position")=="static"){obj.obj.css("position","absolute");};
+
 			obj.obj.css("left",Number(obj.positionLeft+obj.left- ((sw-obj.width )>>1) ));
 			obj.obj.css("top",Number(obj.positionTop+obj.top- ((sh-obj.height )>>1) ));
 
