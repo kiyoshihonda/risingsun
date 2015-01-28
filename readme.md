@@ -10,7 +10,7 @@ Check [here](http://hondakiyoshi.com/risingsun/).
 
 ## Licence
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+[MIT](http://opensource.org/licenses/mit-license.php)
 
 ## Author
 
