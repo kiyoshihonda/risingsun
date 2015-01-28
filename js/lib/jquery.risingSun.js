@@ -1,7 +1,7 @@
 /*
 -----------------------------------------------------------------
 -----------------------------------------------------------------
-risingSun 0.8beta  	jQuery plugin
+risingSun 1.0  	jQuery plugin
 written by Kiyoshi Honda
 
 Copyright (c) 2015 Kiyoshi Honda (http://hondakiyoshi.com/risingsun )
