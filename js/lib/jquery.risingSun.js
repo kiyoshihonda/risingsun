@@ -44,20 +44,34 @@ http://jquery.com
 				if(s.timer<=0){s.timer=1;}
 				s.replay = false;
 			}
-			$.fn.RisingSun._setScrollObj($this, s);
+			if(RS.ignoreBrowser){
+				$this.show();
+			}else{
+				$.fn.RisingSun._setScrollObj($this, s);
+			}
 		});
 	};
 
 	$.extend(RS,{
 		scrObj: new Array(),
 		startScrollFlag: false,
+		ignoreBrowser:false,
 		initScrollAnime: function(){
 			$(window).scroll(RS.changeScrollAnimeLoop);
 			if(!RS._startScrollFlag){
-				if( !RS.pluginExists( "easing" ) ){
-					alert("RisingSun needs jquery easing plug-In");
+				var userAgent = window.navigator.userAgent.toLowerCase();
+				var appVersion = window.navigator.appVersion.toLowerCase();
+				if (userAgent.indexOf("msie") != -1) {
+					if (appVersion.indexOf("msie 6.") != -1) {
+						RS.ignoreBrowser=true;
+					} else if (appVersion.indexOf("msie 7.") != -1) {
+						RS.ignoreBrowser=true;
+					} else if (appVersion.indexOf("msie 8.") != -1) {
+						RS.ignoreBrowser=true;
+					}
 				}
-				RS._startScrollFlag=true;$(window).scroll(RS.changeScrollAnimeLoop);
+				RS._startScrollFlag=true;
+				$(window).scroll(RS.changeScrollAnimeLoop);
 			}
 		},
 		changeScrollAnimeLoop: function(){
