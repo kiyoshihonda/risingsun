@@ -87,13 +87,6 @@ http://jquery.com
 				obj.css("opacity",0);
 				obj.css("display","block");
 			}
-			/*
-			if(obj.css("position")=="static"){
-				obj.css("position","absolute");
-				obj.css("left",parseInt(obj.offset().left,10)+parseInt(obj.css("marginLeft").match(/[0-9]+/)[0],10) );
-				obj.css("top",parseInt(obj.obj.offset().top,10)+parseInt(obj.css("marginTop").match(/[0-9]+/)[0],10) );
-			}
-			*/
 			options = $.extend(options, {
 				obj: obj,
 				positionLeft: Number(obj.css('left').match(/[0-9]+/)),
@@ -178,11 +171,6 @@ http://jquery.com
 					break;
 				}
 			}
-			/*
-			obj.obj.css("top",Number(obj.positionTop +obj.y - ((sh-obj.height )>>1))+obj.height );
-					obj.obj.css("height",0);
-					obj.obj.css("overflow","hidden");*/
-
 
 			obj.obj.stop(false).animate({deg: obj.rotate},{'duration':0});
 			obj.obj.css("opacity",obj.fadeStart);

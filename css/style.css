@@ -89,6 +89,7 @@ h4{
 	top: 340px;
 }
 #download{
+	display: block;
 	width: 150px;
 	height: 24px;
 	background:#239793;
@@ -101,10 +102,12 @@ h4{
 	font-size:12px;
 	padding-top: 5px;
 	display: none;
-}
-#download a{
 	color:#fff;
 	text-decoration: none;
+}
+#download:hover{
+	background:#42A8A3;
+	text-decoration: underline;
 }
 #down{
 	position:absolute;
