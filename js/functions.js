@@ -6,7 +6,7 @@ $(function(){
 		timer:300,duration:300,scale:0.1,popanime:true,ease:"easeOutCubic"
 	});
 	$("#sun").RisingSun({
-		timer:550,y:20,duration:400,ease:"easeOutCubic"
+		timer:1200,slide:"BT",duration:700,ease:"easeOutCubic"
 	});
 	$("h4").RisingSun({
 		timer:800,wipe:"LR",duration:500,ease:"linear"
@@ -31,6 +31,9 @@ $(function(){
 	});
 	$("#wipein").RisingSun({
 		duration:1200,wipe:"LR",ease:"easeInOutCubic",startPosition:0.6
+	});
+	$("#slidein").RisingSun({
+		duration:1200,slide:"LR",ease:"easeInOutCubic",startPosition:0.65
 	});
 	$("#rotatein").RisingSun({
 		duration:800,scale:0.1,rotate:360,ease:"easeInOutCubic",startPosition:0.7

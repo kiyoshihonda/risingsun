@@ -73,9 +73,13 @@
 	});<br>
 	</div>
 	<div id="wipein"><img src="images/wipein.png" height="131" width="527" alt="" /></div>
+	<div id="slidein"><img src="images/slidein.png" height="131" width="527" alt="" /></div>
 	<div id="tx3" class="textbox">
 	$("<span class="classname">#wipein</span>").RisingSun({<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration:1200,<span class="point">wipe:"LR"</span>,ease:"easeInOutCubic"<br>
+	});<br>
+	$("<span class="classname">#slidein</span>").RisingSun({<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration:1200,<span class="point">slide:"LR"</span>,ease:"easeInOutCubic",startPosition:0.6<br>
 	});<br>
 	</div>
 	<div id="rotatein"><img src="images/rotate.png" height="255" width="255" alt="" /></div>
@@ -118,7 +122,8 @@
 		<span class="op">rotate:</span>	is starting axis (diff) for rotation Animation	<span class="blue">[Default  0]</span><br>
 		<span class="op">scale:</span>	is starting scale for scaling Animation <span class="blue">[Default 1.0]</span><br>
 		<span class="op">ease:</span> 	takes an ease method　<span class="blue">[Default  'linear']</span><br>
-		<span class="op">wipe:</span> 	is wipe animation("TB" or "LR") <span class="blue">[Default  false]</span><br>
+		<span class="op">wipe:</span> 	is wipe animation("LR","RL","TB","BT") <span class="blue">[Default  false] </span>note: can't exist together with 'slide'<br>
+		<span class="op">slide:</span> 	is slide animation("LR","RL","TB","BT") <span class="blue">[Default  false] </span>note: can't exist together with 'wipe'<br>
 		<span class="op">fadeStart:</span> start opacity	 <span class="blue">[Default  0]</span><br>
 		<span class="op">fadeEnd:</span> 	end opacity	<span class="blue">[Default 1.0]</span><br>
 		<span class="op">popanime:</span> Pop Up Animation ('true/false' or scaling factor)<span class="blue">[Default false]</span><br>

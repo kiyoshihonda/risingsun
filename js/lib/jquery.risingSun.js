@@ -28,6 +28,7 @@ http://jquery.com
 				ease: "linear",
 				startPosition: 0.5,
 				wipe: false,
+				slide: false,
 				fadeStart: 0,
 				fadeEnd: 1.0,
 				popanime: false,
@@ -123,14 +124,7 @@ http://jquery.com
 			obj.obj.css("left",Number(obj.positionLeft + obj.x - ((sw-obj.width )>>1) ));
 			obj.obj.css("top",Number(obj.positionTop +obj.y - ((sh-obj.height )>>1) ));
 
-			if(obj.wipe=="LR"){
-				obj.obj.wrapInner("<div style='width:"+(obj.width+1)+"px;'></div>");
-				obj.obj.css("width",0);
-				obj.obj.css("overflow","hidden");
-			}else if(obj.wipe=="TB"){
-				obj.obj.css("height",0);
-				obj.obj.css("overflow","hidden");
-			}else{
+			if(!obj.wipe && !obj.slide){
 				obj.obj.find("img").each(function (i) {
 					if($(this).css("width").match(/[%]/)!="%"){
 						imgw=$(this).css("width").match(/[0-9]+/);
@@ -142,7 +136,54 @@ http://jquery.com
 				});
 				obj.obj.css("width",sw);
 				obj.obj.css("height",sh);
+			}else{
+				switch(obj.wipe || obj.slide){
+				case "LR":
+					if(obj.slide){
+						obj.obj.wrapInner("<div style='float:right;width:"+(obj.width+1)+"px;'></div>");
+					}else{
+						obj.obj.wrapInner("<div style='width:"+(obj.width+1)+"px;'></div>");
+					}
+					obj.obj.css("width",0);
+					obj.obj.css("overflow","hidden");
+					break;
+				case "RL":
+					if(obj.slide){
+						obj.obj.wrapInner("<div style='width:"+(obj.width+1)+"px;'></div>");
+					}else{
+						obj.obj.wrapInner("<div style='float:right;width:"+(obj.width+1)+"px;'></div>");
+					}
+					obj.obj.css("width",0);
+					obj.obj.css("left",Number(obj.positionLeft + obj.x - ((sw-obj.width )>>1) )+obj.width );
+					obj.obj.css("overflow","hidden");
+					break;
+				case "TB":
+					if(obj.slide){
+						obj.obj.wrapInner("<div style='position:absolute;bottom:0;height:"+(obj.height+1)+"px;'></div>");
+					}
+					obj.obj.css("width",obj.width);
+					obj.obj.css("height",0);
+					obj.obj.css("overflow","hidden");
+					break;
+				case "BT":
+					if(obj.slide){
+						obj.obj.wrapInner("<div style='height:"+(obj.height+1)+"px;'></div>");
+					}else{
+						obj.obj.wrapInner("<div style='position:absolute;bottom:0;height:"+(obj.height+1)+"px;'></div>");
+					}
+					obj.obj.css("top",Number(obj.positionTop +obj.y - ((sh-obj.height )>>1))+obj.height );
+					obj.obj.css("height",0);
+					obj.obj.css("width",obj.width);
+					obj.obj.css("overflow","hidden");
+					break;
+				}
 			}
+			/*
+			obj.obj.css("top",Number(obj.positionTop +obj.y - ((sh-obj.height )>>1))+obj.height );
+					obj.obj.css("height",0);
+					obj.obj.css("overflow","hidden");*/
+
+
 			obj.obj.stop(false).animate({deg: obj.rotate},{'duration':0});
 			obj.obj.css("opacity",obj.fadeStart);
 			obj.done=false;
