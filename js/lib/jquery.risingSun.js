@@ -120,8 +120,8 @@ http://jquery.com
 			sw=obj.width*obj.scale;
 			sh=obj.width*ratio*obj.scale;
 
-			obj.obj.css("left",Number(obj.positionLeft - ((sw-obj.width )>>1) ));
-			obj.obj.css("top",Number(obj.positionTop - ((sh-obj.height )>>1) ));
+			obj.obj.css("left",Number(obj.positionLeft + obj.x - ((sw-obj.width )>>1) ));
+			obj.obj.css("top",Number(obj.positionTop +obj.y - ((sh-obj.height )>>1) ));
 
 			if(obj.wipe=="LR"){
 				obj.obj.wrapInner("<div style='width:"+(obj.width+1)+"px;'></div>");
