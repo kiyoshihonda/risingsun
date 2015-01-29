@@ -14,4 +14,6 @@ Check [here](http://hondakiyoshi.com/risingsun/).
 
 ## Author
 
-[kiyoshihonda](https://hondakiyoshi.com/)
+[kiyoshihonda](http://hondakiyoshi.com/)
+[(Wonderland Kazakiri inc.](http://wl-kz.com/)
+

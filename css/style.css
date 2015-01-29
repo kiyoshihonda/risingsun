@@ -277,6 +277,13 @@ h4{
 	height:80px;
 	background: #fff;
 }
+#footer a{
+	text-decoration: none;
+}
+#footer .wlkz{
+	font-size:10px;
+	margin-top: 5px;
+}
 #copyright{
 	padding-top: 30px;
 	width: 100%;
