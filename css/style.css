@@ -89,10 +89,13 @@ h4{
 	top: 340px;
 }
 #download{
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
 	display: block;
 	width: 150px;
 	height: 24px;
-	background:#239793;
+	border:1px #fff solid;
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
@@ -106,8 +109,7 @@ h4{
 	text-decoration: none;
 }
 #download:hover{
-	background:#42A8A3;
-	text-decoration: underline;
+	background:#f37e8f;
 }
 #down{
 	position:absolute;

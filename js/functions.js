@@ -18,7 +18,7 @@ $(function(){
 		timer:1500,duration:300,fadeIn:1.0,ease:"easeOutCubic"
 	});
 	$("#download").RisingSun({
-		timer:1300,wipe:"TB",duration:300,ease:"easeOutCubic"
+		timer:1300,duration:300,ease:"easeOutCubic"
 	});
 	$("#down").RisingSun({
 		timer:1500,duration:300,ease:"easeOutCubic"
