@@ -89,8 +89,6 @@ http://jquery.com
 			}
 			options = $.extend(options, {
 				obj: obj,
-				positionLeft: Number(obj.css('left').match(/[0-9]+/)),
-				positionTop: obj.position().top,
 				oiginaltop: obj.offset().top,
 				oiginalleft: obj.offset().left,
 				pos: {
@@ -114,8 +112,8 @@ http://jquery.com
 			sw=obj.width*obj.scale;
 			sh=obj.width*ratio*obj.scale;
 
-			obj.obj.css("left",Number(obj.positionLeft + obj.x - ((sw-obj.width )>>1) ));
-			obj.obj.css("top",Number(obj.positionTop +obj.y - ((sh-obj.height )>>1) ));
+			obj.obj.css("left",Number(obj.pos.left + obj.x - ((sw-obj.width )>>1) ));
+			obj.obj.css("top",Number(obj.pos.top +obj.y - ((sh-obj.height )>>1) ));
 
 			if(!obj.wipe && !obj.slide){
 				obj.obj.find("img").each(function (i) {
@@ -147,7 +145,7 @@ http://jquery.com
 						obj.obj.wrapInner("<div style='float:right;width:"+(obj.width+1)+"px;'></div>");
 					}
 					obj.obj.css("width",0);
-					obj.obj.css("left",Number(obj.positionLeft + obj.x - ((sw-obj.width )>>1) )+obj.width );
+					obj.obj.css("left",Number(obj.pos.left + obj.x - ((sw-obj.width )>>1) )+obj.width );
 					obj.obj.css("overflow","hidden");
 					break;
 				case "TB":
@@ -164,7 +162,7 @@ http://jquery.com
 					}else{
 						obj.obj.wrapInner("<div style='position:absolute;bottom:0;height:"+(obj.height+1)+"px;'></div>");
 					}
-					obj.obj.css("top",Number(obj.positionTop +obj.y - ((sh-obj.height )>>1))+obj.height );
+					obj.obj.css("top",Number(obj.pos.top +obj.y - ((sh-obj.height )>>1))+obj.height );
 					obj.obj.css("height",0);
 					obj.obj.css("width",obj.width);
 					obj.obj.css("overflow","hidden");
