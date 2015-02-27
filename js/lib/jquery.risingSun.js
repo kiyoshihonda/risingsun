@@ -93,7 +93,7 @@ http://jquery.com
 				oiginalleft: obj.offset().left,
 				pos: {
 					top: obj.position().top,
-					left: Number(obj.css('left').match(/[0-9]+/))
+					left: Number(obj.css('left').match(/[-0-9]+/))
 				},
 				done: false,
 				width: obj.width(),
@@ -118,8 +118,8 @@ http://jquery.com
 			if(!obj.wipe && !obj.slide){
 				obj.obj.find("img").each(function (i) {
 					if($(this).css("width").match(/[%]/)!="%"){
-						imgw=$(this).css("width").match(/[0-9]+/);
-						imgh=$(this).css("height").match(/[0-9]+/);
+						imgw=$(this).css("width").match(/[-0-9]+/);
+						imgh=$(this).css("height").match(/[-0-9]+/);
 						$(this).css("width",100*imgw/obj.width+"%");
 						$(this).css("height",100*imgh/obj.height+"%");
 					}
